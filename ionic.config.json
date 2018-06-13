@@ -1,0 +1,8 @@
+{
+  "name": "TestAPI",
+  "app_id": "defe1bcb",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
