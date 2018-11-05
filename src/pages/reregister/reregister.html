@@ -1,0 +1,47 @@
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <h5 ion-text color="danger">Zmiana danych urzytkownika</h5>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form (ngSubmit)="Reregister()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input type="text" placeholder="Name" name="text" [(ngModel)]=" resetAcount.name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]=" resetAcount.email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="primary" stacked>Podaj stare hasło</ion-label>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="resetAcount.password" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" stacked>Podaj nowe hasło</ion-label>
+              <ion-input type="password" placeholder="Password Input" name="password" [(ngModel)]="repeatpassword" required></ion-input>
+            </ion-item>
+            <!--<ion-item>-->
+              <!--<ion-label color="primary" stacked>Nowe hasło.</ion-label>-->
+              <!--<ion-input type="password" placeholder="Password Input" name="password" [(ngModel)]="repeatpassword" required></ion-input>-->
+            <!--</ion-item>-->
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button block type="submit" [disabled]="!registerForm.form.valid">Zmien Dane</button>
+
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

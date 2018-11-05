@@ -1,0 +1,3 @@
+interface place {
+  place:string;
+}

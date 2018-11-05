@@ -1,14 +1,155 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
-      Ionic Blank
+      Member Area
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home getstart" padding>
+  <form [formGroup]="idforms"  (ngSubmit)="Idform()" >
+    <ion-list>
+      <ion-item>
+
+        <ion-input type="text" placeholder="Podaj id profilu..." [(ngModel)]="form_object.ID"
+                   formControlName="id"   required></ion-input>
+
+
+      </ion-item>
+
+
+      <ion-item>
+        <button ion-button color="secondary" type="submit" [disabled]="!idforms.valid">Wczytaj profil</button>
+      </ion-item>
+
+
+    </ion-list>
+
+  </form>
+  <form>
+    <ion-item>
+      <button ion-button class="register-btn" block clear (click)="goToSearch()">Skorzystaj z wyszukiwarki</button>
+    </ion-item>
+    <ion-item>
+      <button ion-button class="register-btn" block clear (click)="recreateAccount()">Zmien dane urzytkownika</button>
+    </ion-item>
+  </form>
+  <form>
+
+    <ion-item *ngIf="showprofil === true" #slidingItem>
+    <ion-item>
+      <p>Trener Personalny </p>
+      <p>Imie: {{item.name}}</p>
+      <p>Nazwisko: {{item.surname}}</p>
+      <p>Płeć: {{item.gender}}</p>
+      <p>Numer telefonu:{{item.phone}}</p>
+      <p>Email:{{item.email}}</p>
+      <p>Opis: {{item.description}}</p>
+      <p>Data rejestracji:{{item.registerDate}}</p>
+      <p>Dyscypliny:{{item.tr_disc}}</p>
+
+      <ion-item *ngFor="let cert of item.tr_cert let i = index2" (click)="onCheckItem(i)">
+        <p> Certyfikat: </p>
+        <p>Zdobyte certyfikaty</p>
+        <p>Nazwa kursu: {{cert.name_of_institution}} </p>
+        <p>Umiejetnosci:{{cert. name_of_course}} </p>
+        <p>Data rozpoczecia:{{cert.begin_date}} </p>
+        <p>Data zakonczenia: {{cert.end_date}}</p>
+
+
+      </ion-item>
+      <ion-item *ngFor="let uni of item.tr_uni let i = index0" (click)="onCheckItem(i)">
+        <p>Zdobyte wykształcenie</p>
+        <p>Uniwersytet : {{uni.university}}</p>
+        <p>Kierunek: {{uni.course}}</p>
+        <p>Tytuł: {{uni.degree}}</p>
+        <p>Data rozpoczecia: {{uni.begin_date}}</p>
+        <p>Data zakonczenia:{{uni.end_date}}</p>
+        <p>Data utworzenia:{{uni.created_at}}</p>
+        <p>Data modyfikacji: {{uni.updated_at}}</p>
+      </ion-item>
+
+
+
+
+
+
+
+
+      <ion-item *ngFor="let loc of item.tr_loc let i = index3" (click)="onCheckItem(i)">
+        <p>Lokalizacja</p>
+        <P>Miasto : {{loc. city}}</P>
+        <P>Województwo: {{loc.voivodeship}}</P>
+        <P>Ostatnia data: {{loc.updated_at}}</P>
+        <P>Data utworzenie {{loc.created_at}}</P>
+      </ion-item>
+
+      <ion-item *ngFor="let loc of item.tr_pl let i = index4" (click)="onCheckItem(i)">
+        <p>Lokalizacja:{{loc.place}}</p>
+        <p></p>
+      </ion-item>
+
+      <ion-item *ngFor="let off of item.tr_off let i = index5" (click)="onCheckItem(i)">
+        <p>Oferta</p>
+        <p>Usługa: {{off.name}}</p>
+        <p>Cena: {{off.price}}</p>
+        <p>Maksymalna liczba klientów:{{off.max_no_of_clients}}</p>
+        <p>Data utworzenie:{{off.created_at}}</p>
+        <p>Data modyfikacji : {{off.updated_at}}</p>
+        <p></p>
+      </ion-item>
+      <ion-item *ngFor="let opp of item.tr_op let i = index6" (click)="onCheckItem(i)">
+
+        <div class="coment-box">
+          <h5 ion-text color="danger">Opinia: {{opp.opinion}}</h5>
+
+        <h5 ion-text color="danger">Opiniodawca: {{opp.opinionGiver}}</h5>
+
+
+        </div>
+      </ion-item>
+    </ion-item>
+
+  <!--<ion-item>-->
+    <!--<button ion-button color="secondary" type="submit">Resetuj profil</button>-->
+  <!--</ion-item>-->
+    <ion-item>
+      <button (click)=" resetform()"><ion-icon name="thrash"></ion-icon>Resetuj profil</button>
+
+    </ion-item>  </ion-item>
+
+  </form>
+
+
+
+
+  <form [formGroup]="opinionforms"  (ngSubmit)="Opinionform()" padding>
+    <ion-item>
+
+
+      <ion-label color="primary" stacked>Urzytkownik</ion-label>
+      <ion-input type="text" placeholder="Name..." [(ngModel)]="Opinions.opinionGiver" formControlName="opinionuser"
+                 required>
+      </ion-input>
+    </ion-item>
+<ion-item>
+  <ion-label color="primary" stacked>Opinia Urzytkownika</ion-label>
+  <ion-textarea placeholder="Enter a description" [(ngModel)]="Opinions.opinion"
+                formControlName="Opinionss"
+                required></ion-textarea>
+
+</ion-item>
+    <ion-item>
+      <button ion-button color="secondary" type="submit"[disabled]="! opinionforms.valid">Dodaj Opinie</button>
+    </ion-item>
+
+
+  </form>
+
+
 </ion-content>

@@ -1,0 +1,129 @@
+<!--
+  Generated template for the ShowSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Wyszukaj Profil
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    Miasto  :  {{searchParams.loc}}
+    Dyscyplina  :  {{searchParams.dysc}}
+  </ion-item>
+
+  <form (ngSubmit)="showForm()">
+    <ion-list>
+
+
+
+      <ion-item>
+        <button ion-button color="secondary" type="submit">Wyszukaj profil</button>
+      </ion-item>
+      <ion-item>
+        <button ion-button class="register-btn" block clear (click)="changeSchow()">Zmien dane wyszukiwania</button>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button class="register-btn" block clear (click)="backToHome()">Wróc do strony głownej</button>
+      </ion-item>
+    </ion-list>
+
+  </form>
+
+
+  <form>
+
+    <ion-list>
+      <ion-item *ngIf="showsearch === true" #slidingItem>
+
+      <ion-item *ngFor="let item of Profils; let i = index" (click)="onCheckItem(i)">
+        <p>Trener Personalny </p>
+        <p>Imie: {{item.name}}</p>
+        <p>Nazwisko: {{item.surname}}</p>
+        <p>Płeć: {{item.gender}}</p>
+        <p>Numer telefonu:{{item.phone}}</p>
+        <p>Email:{{item.email}}</p>
+        <p>Opis: {{item.description}}</p>
+        <p>Data rejestracji:{{item.registerDate}}</p>
+        <p>Dyscypliny:{{item.tr_disc}}</p>
+
+        <ion-item *ngFor="let cert of item.tr_cert let i = index2" (click)="onCheckItem(i)">
+          <p> Certyfikat: </p>
+          <p>Zdobyte certyfikaty</p>
+          <p>Nazwa kursu: {{cert.name_of_institution}} </p>
+          <p>Umiejetnosci:{{cert. name_of_course}} </p>
+          <p>Data rozpoczecia:{{cert.begin_date}} </p>
+          <p>Data zakonczenia: {{cert.end_date}}</p>
+
+        </ion-item>
+
+        <ion-item *ngFor="let uni of item.tr_uni let i = index0" (click)="onCheckItem(i)">
+          <p>Zdobyte wykształcenie</p>
+          <p>Uniwersytet : {{uni.university}}</p>
+          <p>Kierunek: {{uni.course}}</p>
+          <p>Tytuł: {{uni.degree}}</p>
+          <p>Data rozpoczecia: {{uni.begin_date}}</p>
+          <p>Data zakonczenia:{{uni.end_date}}</p>
+          <p>Data utworzenia:{{uni.created_at}}</p>
+          <p>Data modyfikacji: {{uni.updated_at}}</p>
+        </ion-item>
+
+        <ion-item *ngFor="let loc of item.tr_loc let i = index3" (click)="onCheckItem(i)">
+          <p>Lokalizacja</p>
+          <P>Miasto : {{loc. city}}</P>
+          <P>Województwo: {{loc.voivodeship}}</P>
+          <P>Ostatnia data: {{loc.updated_at}}</P>
+          <P>Data utworzenie {{loc.created_at}}</P>
+        </ion-item>
+
+        <ion-item *ngFor="let loc of item.tr_pl let i = index4" (click)="onCheckItem(i)">
+          <p>Lokalizacja:{{loc.place}}</p>
+          <p></p>
+        </ion-item>
+
+        <ion-item *ngFor="let off of item.tr_off let i = index5" (click)="onCheckItem(i)">
+          <p>Oferta</p>
+          <p>Usługa: {{off.name}}</p>
+          <p>Cena: {{off.price}}</p>
+          <p>Maksymalna liczba klientów:{{off.max_no_of_clients}}</p>
+          <p>Data utworzenie:{{off.created_at}}</p>
+          <p>Data modyfikacji : {{off.updated_at}}</p>
+          <p></p>
+        </ion-item>
+        <ion-item *ngFor="let opp of item.tr_op let i = index6" (click)="onCheckItem(i)">
+          <p>Opinia: {{opp.opinion}}</p>
+          <p></p>
+          <p>Opiniodawca: {{opp.user}}</p>
+
+        </ion-item>
+      </ion-item>
+    </ion-item>
+
+
+    </ion-list>
+
+
+
+
+  </form>
+  <ion-list>
+    <ion-item *ngIf="showresult === false" #slidingItem>
+
+      <h5 ion-text color="danger">Brak wyszukiwań spełniających wybrane kryteria.</h5>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

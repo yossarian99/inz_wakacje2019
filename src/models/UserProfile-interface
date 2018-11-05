@@ -1,0 +1,9 @@
+interface UserProfileInterface{
+
+   UserName?:string,
+   UserSurname?:string,
+   UserPassword?:string,
+   Gender?: any
+  UserEmail?:string,
+   UserDescription?:string
+}

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-content getstart" padding>
+  <div class="login-box">
+    <!--<ion-item>-->
+      <!--<ion-label>Gender</ion-label>-->
+      <!--<ion-select [(ngModel)]="genderTemplate"  (ionChange)="updategender()">-->
+        <!--<ion-option value="f">Female</ion-option>-->
+        <!--<ion-option value="m">Male</ion-option>-->
+
+      <!--</ion-select>-->
+    <!--</ion-item>-->
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Imię</ion-label>-->
+              <!--<ion-input-->
+                <!--type="text"-->
+                <!--name="UserName"-->
+                <!--placeholder="Imię..."-->
+                <!--[(ngModel)]="registerCredentials.UserName"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Nazwisko</ion-label>-->
+              <!--<ion-input-->
+                <!--type="text"-->
+                <!--name="UserSurname"-->
+                <!--placeholder="Nazwisko..."-->
+                <!--[(ngModel)]="registerCredentials.UserSurname"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Hasło</ion-label>-->
+              <!--<ion-input-->
+                <!--type="text"-->
+                <!--name="UserPassword"-->
+                <!--placeholder="Hasło..."-->
+                <!--[(ngModel)]="registerCredentials.UserPassword"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+            <ion-item>
+              <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Telefon</ion-label>-->
+              <!--<ion-input-->
+                <!--type="tel"-->
+                <!--name="UserPhone"-->
+                <!--placeholder="..."-->
+                <!--[(ngModel)]="registerCredentials.UserPhone"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+
+
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Email</ion-label>-->
+              <!--<ion-input-->
+                <!--type="email"-->
+                <!--name="UserEmail"-->
+                <!--placeholder="..."-->
+                <!--[(ngModel)]="registerCredentials.UserEmail"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+            <!--<ion-item>-->
+              <!--<ion-label fixed>Opis</ion-label>-->
+              <!--<ion-input-->
+                <!--type="text"-->
+                <!--name="UserDescription"-->
+                <!--placeholder="Dodaj opis..."-->
+                <!--[(ngModel)]="registerCredentials.UserDescription"-->
+                <!--required></ion-input>-->
+            <!--</ion-item>-->
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>
