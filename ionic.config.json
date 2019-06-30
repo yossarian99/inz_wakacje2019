@@ -1,9 +1,8 @@
 {
   "name": "TestAPI",
-  "app_id": "5b84cbd4",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
-
+  },
+  "type": "ionic-angular",
+  "id": "5b84cbd4"
 }
