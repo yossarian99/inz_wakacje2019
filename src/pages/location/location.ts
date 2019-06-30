@@ -36,12 +36,39 @@ dyscypline:string;
     ];
 
   }
+chanegeToUtf(town:string){
+    switch(town){
+      case   'Warszawa': return 'Warszawa';
 
+      case  'Kraków':return 'Krak%c3%b3w';
+      case   'Łódź': return 'Ł%c3%b3d%c5%ba';
+      case   'Wrocław':return  'Wroc%c5%82aw';
+      case     'Poznań': return  'Pozna%c5%84';
+      case    'Gdańsk': return 'Gda%c5%84sk';
+      case   'Szczecin': return 'Szczecin';
+      case    'Bydgoszcz': return 'Bydgoszcz';
+      case    'Lublin': return 'Lublin';
+      case     'Białystok': return 'Bia%c5%82ystok';
+      case    'Zielona Góra': return'Zielona%20 G%c3%b3ra'
+      case    'Dąbrowa Górnicza': return   'D$c4$85browa%20 G%c3%b3rnicza';
+
+      default : return '';
+
+
+
+
+    }
+
+
+
+
+
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad LocationPage');
   }
   remebertown(town:string){
-    this.sea.addSearchParams(this.dyscypline,town);
+    this.sea.addSearchParams(this.dyscypline,this.chanegeToUtf(town));
     this.nav.push('ShowSearchPage');
   }
 }

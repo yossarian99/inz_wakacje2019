@@ -137,6 +137,13 @@
                  required>
       </ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-textarea placeholder="Enter a description" [(ngModel)]="Opinions.giveremail"
+                    formControlName="email"
+                    required></ion-textarea>
+
+    </ion-item>
 <ion-item>
   <ion-label color="primary" stacked>Opinia Urzytkownika</ion-label>
   <ion-textarea placeholder="Enter a description" [(ngModel)]="Opinions.opinion"
@@ -144,6 +151,7 @@
                 required></ion-textarea>
 
 </ion-item>
+
     <ion-item>
       <button ion-button color="secondary" type="submit"[disabled]="! opinionforms.valid">Dodaj Opinie</button>
     </ion-item>

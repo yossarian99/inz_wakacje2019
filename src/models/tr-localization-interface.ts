@@ -1,7 +1,7 @@
 interface tr_localization {
+  id:number,
   city: string,
   voivodeship: string,
-  updated_at:string,
-  created_at:string
+
 
 }

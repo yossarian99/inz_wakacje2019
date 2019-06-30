@@ -49,7 +49,7 @@
     <ion-list>
       <ion-item *ngIf="showsearch === true" #slidingItem>
 
-      <ion-item *ngFor="let item of Profils; let i = index" (click)="onCheckItem(i)">
+      <ion-item *ngFor="let item of profiles; let i = index" (click)="onCheckItem(i)">
         <p>Trener Personalny </p>
         <p>Imie: {{item.name}}</p>
         <p>Nazwisko: {{item.surname}}</p>

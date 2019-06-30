@@ -5,7 +5,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 
 import {MyApp} from './app.component';
-
+//import { IonicPageModule } from 'ionic-angular';
 import {AuthServiceProvider} from '../providers/auth-service/auth-service';
 import {ConfigServce} from "../providers/config-service/config-service";
 import {HttpModule} from "@angular/http";
@@ -13,8 +13,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ProfileListService} from "../services/Pfofile-list";
 import { RestProvider } from '../providers/rest/rest';
 import {SearchServiceProvider} from "../providers/search-service/search-service";
-import {FormsModule} from "@angular/forms";
-
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import { StarRatingModule } from 'ionic3-star-rating';
+import { IonicImageLoader } from 'ionic-image-loader';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,13 @@ import {FormsModule} from "@angular/forms";
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StarRatingModule,
+    ReactiveFormsModule,
+    IonicImageLoader.forRoot(),
+
+
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,6 +56,7 @@ import {FormsModule} from "@angular/forms";
     ProfileListService,
     RestProvider,
     SearchServiceProvider,
+
   ]
 })
 

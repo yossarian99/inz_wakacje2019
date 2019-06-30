@@ -35,6 +35,7 @@ export class HomePage {
   iD: number;
   form_object: form1 = {};
   Opinions: Opinie ={};
+
   nameSearch:string;
   surnameSearch:string;
   showprofil:boolean;
@@ -180,11 +181,13 @@ this.idforms.reset();
   };
   Opinionform(){
     if(this.showprofil===true){
-      this.profilsService.addOponion(this.Opinions.opinion,this.Opinions.opinionGiver,this.userProfil_temp.name,this.userProfil_temp.surname);
+      this.Opinions.rating=4;
+      this.Opinions.name="yossarian99@wp.pl";
+      this.profilsService.addOponion(this.Opinions.description,this.Opinions.name,this.Opinions.email,this.Opinions.rating,this.userProfil_temp.name);
     }
-    console.log("opinion=",this.Opinions.opinion);
-    console.log("opinodawca=",this.Opinions.opinionGiver);
-this. opinionforms.reset();
+    console.log("opinion=",this.Opinions.description);
+    console.log("opinodawca=",this.Opinions.name);
+    this. opinionforms.reset();
   }
   resetform(){
     this.showprofil=false;
@@ -223,7 +226,7 @@ return temp;
 initializeopinionforms(){
 
     this.opinionforms = new FormGroup({   opinionuser: new FormControl(),
-      Opinionss: new FormControl()
+      Opinionss: new FormControl(),email:new FormControl(),ocena:new FormControl()
 
 
 })

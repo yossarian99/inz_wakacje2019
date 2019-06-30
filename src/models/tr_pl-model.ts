@@ -1,3 +1,6 @@
 interface place {
-  place:string;
+  id:number,
+  place:string,
+  latitude:string,
+  longitude:string,
 }

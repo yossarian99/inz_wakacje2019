@@ -25,7 +25,7 @@ export class ShowSearchPage {
 searchParams={
 loc:'',
 dysc:''
-}
+};
   showsearch:boolean;
 showresult:boolean=true;
 profiles:UserProfile[]=[];
@@ -34,13 +34,16 @@ profiles:UserProfile[]=[];
 
 
   }
+  private BASE_URL = 'http://najlepszytrener.com.pl/api/';
+  private GET_PROFILE = this.BASE_URL + 'profiles/';
+  private URl = this.GET_PROFILE+this.searchParams.dysc+'/'+this.searchParams.loc
   public getSearch() {
-    this.configServce. getSearchPeofile(this.searchParams.dysc,this.searchParams.loc).subscribe(result => {
+    this.configServce. getSearchPeofile(decodeURI(this.URl)).subscribe(result => {
 
-     if(result===undefined){
+     if(result!=undefined){
        Object.assign(this.profiles, result);
        console.log("wczytane profils w wyszukiwaniu :");
-       console.log(result);
+       console.log(this.profiles);
 
 
      }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -9,9 +9,10 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class RestProvider {
-  apiUrl = 'http://spit2018kuba.me/api/profiles/';
-  apiserachURL ='http://spit2018kuba.me/api/'
-  dysyplineURL="http://spit2018kuba.me/api/dyscyplines.json'"
+  apiUrl = 'https://najlepszytrener.com.pl/api/profiles/';
+  apiserachURL ='https://najlepszytrener.com.pl/api/'
+  dysyplineURL="https://najlepszytrener.com.pl/api/dyscyplines.json'"
+  editprimaryinfoURL ='https://najlepszytrener.com.pl/'
   id:number;
   dysc:string
   loc:string;
@@ -37,6 +38,31 @@ export class RestProvider {
         });
     });
   }
+  editPrimaryInfo (data) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+      // 'Access-Control-Allow-Origin' : 'https://najlepszytrener.com.pl:443',
+        //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+        'Accept':'application/json',
+  //      'content-type':'application/json',
+        'Content-Type': 'multipart/form-data; application/json; charset=UTF-8',
+        'content-type':'application/x-www-form-urlencoded',
+        // let options = new RequestOptions({ headers:headers,withCredentials: true});
+        'X-CSRF-TOKEN': this.getToken()
+
+
+      }),
+     // params: new HttpParams().set('program_id', '5b84cbd4')
+    };
+    return new Promise((resolve, reject) => {
+      this.http.post(this.editprimaryinfoURL+'editPrimaryInfo',data,httpOptions)
+        .subscribe(res => {
+          resolve(res);
+        },   err=>{
+          console.log(" Error..");
+        });
+    });
+  }
   getSearch() {
     return new Promise(resolve => {
       this.http.get(this.apiserachURL+this.dysc+'/'+this.loc).subscribe(data => {
@@ -57,5 +83,10 @@ export class RestProvider {
   }
   setId(i:number){
     this.id=i;
+  }
+  getToken() {
+    let token = document.querySelector('meta[property="csrf-token"]')
+      ['content'];
+    return token;
   }
 }

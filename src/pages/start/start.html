@@ -1,0 +1,115 @@
+<!--
+  Generated template for the StartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar class="nav" >
+    <ion-buttons start>
+      <button ion-button >
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title style=" font-size:22px !important" >
+      Najlepszy trener
+    </ion-title>
+    <ion-buttons end>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="getstart">
+  <ion-grid>
+
+<ion-row  justify-content-center>
+
+
+
+
+
+
+
+
+
+
+
+
+<ion-col col-12>
+
+<ion-row><P></P><P></P></ion-row>
+
+
+
+
+
+
+      <ion-row  align-items-start class="przesroczyste">
+        <div class="textdiv" text-center><p>Wyszukiwarka trenerów sportu.</p></div>
+      </ion-row >
+
+      <ion-row align-items-end class="przesroczyste" >
+        <div class="textdiv" text-center><p>Znajdz w szybki sposób trenera dysypliny</p></div>
+      </ion-row>
+
+
+
+
+<ion-row>
+  <ion-row>
+  </ion-row>
+
+
+
+
+
+   <ion-item  >
+     <ion-label>Dyscypliny</ion-label>
+     <ion-select [(ngModel)]=" dyscyplina"  [ngModelOptions]="{standalone: true}" >
+       <ion-option *ngFor="let  dyscyplina of  Dysciplines" [value]=" dyscyplina" >{{dyscyplina.Name}}</ion-option>
+     </ion-select>
+   </ion-item>
+</ion-row>
+<ion-row class="tło_start2">
+  <p></p>
+</ion-row>
+
+  <form [formGroup]="idforms" (ngSubmit)=" Idform()"  >
+
+    <ion-list>
+<ion-row>
+      <ion-item col-12>
+
+        <ion-input  type="text" placeholder="Miasto..." [(ngModel)]="Town"
+                    formControlName="Town"   required></ion-input>
+
+
+      </ion-item>
+</ion-row>
+      <ion-row class="tło_start2">
+        <p></p>
+      </ion-row>
+<ion-row>
+      <ion-item class="przesroczyste">
+        <button  ion-button color="light" medium block type="submit" >Wczytaj profil</button>
+      </ion-item>
+
+</ion-row>
+    </ion-list>
+
+  </form>
+
+
+</ion-col>
+
+
+</ion-row>
+  </ion-grid>
+
+</ion-content>

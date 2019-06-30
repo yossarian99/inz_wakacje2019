@@ -38,9 +38,33 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  custom : #1464f6,
+  buutonlight:#ffffff,
+  filtrWynikow :#4bc0e3,
+  wyczyscbuuton: #707070,
+calm: (
+base: #fff,
+contrast: #1464f6
+)
 );
+$toolbar-md-title-font-size: 2rem;
+$toolbar-md-title-text-color: map-get($colors, custom);
+$toolbar-ios-title-text-color: map-get($colors, custom);
+$toolbar-wp-title-text-color: map-get($colors, custom);
+$toolbar-md-button-font-size: 	4rem;
+.getstart {
 
+  background-image: url('../../img/opona.png');
+  // background: url('../../img/getstart.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.columna{
+
+  border: think solid black;
+}
 
 // App iOS Variables
 // --------------------------------------------------

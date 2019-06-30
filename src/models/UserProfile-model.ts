@@ -1,7 +1,7 @@
 import {Opinie} from "./Opnie-model";
 
 export class UserProfile {
-
+   public id?:number;
   public name?: string;
   public surname?: string;
   public gender?: any;
@@ -10,11 +10,12 @@ export class UserProfile {
   public email?: string;
   public facebook?: any;
   public instagram?: any;
+  public page?:string;
   public description?: string;
-  public rating?: string;
+  public rating?: number;
   public avatar?: any;
   public registerDate?: string;
-  public remember_token?: any;
+  public facebook_id?: any;
   public tr_disc?: Array<dyscypline> = [];
   public tr_cert?: Array<certyfikat> = [];
   public tr_uni?: Array<uniwersytet> = [];
@@ -24,9 +25,11 @@ export class UserProfile {
   public tr_off?: Array<tr_off> = [];
   public tr_op?: Array<Opinie> = [];
   public tr_tr?: Array<any> = [];
+  public tr_ph?:Array<tr_ph>=[];
 
-
-  constructor(name?: string,
+  constructor(
+    id:number,
+    name?: string,
               surname?: string,
               gender?: any,
               bdate?: any,
@@ -35,10 +38,11 @@ export class UserProfile {
               facebook?: any,
               instagram?: any,
               description?: string,
-              rating?: string,
+              rating?: number,
               avatar?: any,
               registerDate?: string,
-              remember_token?: any,
+              facebook_id?:any,
+
               tr_disc?: Array<dyscypline>,
               tr_cert?: Array<certyfikat>,
               tr_uni?: Array<uniwersytet>,
@@ -46,8 +50,8 @@ export class UserProfile {
               tr_pl?: Array<place>,
               tr_off?: Array<tr_off>,
               tr_op?: Array<Opinie>,
-              tr_tr?: Array<any>,) {
-
+              tr_tr?: Array<any>,
+    tr_ph?:Array<tr_ph>,){
     this.name = name;
     this.surname = surname;
     this.gender = gender;
@@ -60,7 +64,7 @@ export class UserProfile {
     this.rating = rating;
     this.avatar = avatar;
     this.registerDate = registerDate;
-    this.remember_token = remember_token;
+    this.facebook_id =facebook_id;
     this.tr_disc = tr_disc;
     this.tr_cert = tr_cert;
     this.tr_uni = tr_uni;
@@ -71,6 +75,7 @@ export class UserProfile {
     this.tr_off = tr_off;
     this.tr_op = tr_op;
     this.tr_tr = tr_tr;
+    this.tr_ph=tr_ph;
   }
 
 

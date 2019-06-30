@@ -1,0 +1,120 @@
+page-start {
+  .bar .title {
+    font-size:22px !important;
+  }
+  //title{font-size: 22px;}
+  //.nav {
+  //  $toolbar-md-button-font-size: 3rem;
+  //
+  //
+  //  $colors-md :#0c59cf;
+  //  $toolbar-md-background: #000000;
+  //  md :#0c59cf;
+  //
+  //  $toolbar-md-title-font-size: 0.1rem
+  //}
+  .tło_start {
+    //width: auto;
+   // margin: 0 auto;
+    background-color: #fff;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+  }
+  .tło_start div {
+    padding-top: -3%;
+    color:#000000;
+    filter:alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity:1;
+    font-size : larger;
+   // text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tło_start2 {
+  //  width: auto;
+  //  margin: 0 auto;
+    background-color: #fff;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+    padding-top: 3%;
+  }
+  .tło_start2 div {
+    padding-top: -3%;
+    color:#000000;
+    filter:alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity:1;
+    font-size : medium;
+    // text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .buttonsytle{
+   //padding-top: -3%;
+    //color:#f4f4f4;
+    filter:alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity:1;
+    font-size : larger;
+    // text-align: center;
+    height: 100%;
+    width: 800%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tło_startbtn {
+    width: auto;
+    margin: 0 auto;
+    background-color: #fff;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+  }
+  .coltlo {
+    width: 100%;
+   // margin: 0 auto;
+    background-color: #fff;
+    filter:alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity:0.5;
+  }
+  .przesroczyste{
+
+
+    background-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+
+
+  }
+  .textdiv {
+    padding-top: -3%;
+    color:#000000;
+    filter:alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity:1;
+    font-size : larger;
+    // text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnrozmiar{
+    max-width: 100% !important;// your choice :)
+
+  }
+
+}
