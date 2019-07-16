@@ -16,6 +16,7 @@ import {SearchServiceProvider} from "../providers/search-service/search-service"
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { StarRatingModule } from 'ionic3-star-rating';
 import { IonicImageLoader } from 'ionic-image-loader';
+import { ApiModule } from '../.';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { IonicImageLoader } from 'ionic-image-loader';
 
   ],
   imports: [
+   ApiModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
