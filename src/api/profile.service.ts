@@ -18,7 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { Profile } from '../model/profile';
+import { ProfileOut } from '../model/profileOut';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -63,9 +63,9 @@ export class ProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getProfile(id: number, observe?: 'body', reportProgress?: boolean): Observable<Profile>;
-    public getProfile(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Profile>>;
-    public getProfile(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Profile>>;
+    public getProfile(id: number, observe?: 'body', reportProgress?: boolean): Observable<ProfileOut>;
+    public getProfile(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProfileOut>>;
+    public getProfile(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProfileOut>>;
     public getProfile(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -87,7 +87,7 @@ export class ProfileService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Profile>(`${this.basePath}/profiles/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<ProfileOut>(`${this.basePath}/profiles/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

@@ -7,7 +7,8 @@ import {RestProvider} from "../../providers/rest/rest";
 import {FormControl, FormGroup} from "@angular/forms";
 import {form1} from "../../models/ID_form_model";
 import {SearchNewPage} from "../search-new/search-new";
-
+import { ApiModule} from '../..';
+import {DyscyplineService} from "../../api/dyscypline.service";
 /**
  * Generated class for the StartPage page.
  *
@@ -23,7 +24,7 @@ import {SearchNewPage} from "../search-new/search-new";
 export class StartPage {
 
   constructor(public nav: NavController, public navParams: NavParams,public sea:SearchServiceProvider,
-              private configServce: ConfigServce, public restProvider: RestProvider) {
+              private configServce: ConfigServce, public restProvider: RestProvider,public rest:DyscyplineService) {
 this.getDyscp();
   }
   Dysciplines: Array<Dysyplina>=[];
@@ -40,8 +41,8 @@ this.getDyscp();
  this.getDyscp();
   }
   public getDyscp() {
-    this.configServce.getDyspyplins().subscribe(result => {
-      Object.assign(this.Dysciplines, result.Dysciplines);
+    this.rest.getDyscyplines().subscribe(result => {
+      Object.assign(this.Dysciplines, result);
 
 
       //  for(var i=0;i<result.length;++i){
