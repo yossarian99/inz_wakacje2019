@@ -63,34 +63,33 @@
         <ion-item *ngFor="let cert of item.tr_cert let i = index2" (click)="onCheckItem(i)">
           <p> Certyfikat: </p>
           <p>Zdobyte certyfikaty</p>
-          <p>Nazwa kursu: {{cert.name_of_institution}} </p>
-          <p>Umiejetnosci:{{cert. name_of_course}} </p>
-          <p>Data rozpoczecia:{{cert.begin_date}} </p>
-          <p>Data zakonczenia: {{cert.end_date}}</p>
+          <p>Nazwa kursu: {{cert.name}} </p>
+          <p>Data rozpoczecia:{{cert.beginDate}} </p>
+          <p>Data zakonczenia: {{cert.endDate}}</p>
 
         </ion-item>
 
         <ion-item *ngFor="let uni of item.tr_uni let i = index0" (click)="onCheckItem(i)">
           <p>Zdobyte wykształcenie</p>
-          <p>Uniwersytet : {{uni.university}}</p>
+          <p>Uniwersytet : {{uni.name}}</p>
           <p>Kierunek: {{uni.course}}</p>
           <p>Tytuł: {{uni.degree}}</p>
-          <p>Data rozpoczecia: {{uni.begin_date}}</p>
-          <p>Data zakonczenia:{{uni.end_date}}</p>
-          <p>Data utworzenia:{{uni.created_at}}</p>
-          <p>Data modyfikacji: {{uni.updated_at}}</p>
+          <p>Data rozpoczecia: {{uni.beginDate}}</p>
+          <p>Data zakonczenia:{{uni.endDate}}</p>
+          <!--<p>Data utworzenia:{{uni.created_at}}</p>-->
+          <!--<p>Data modyfikacji: {{uni.updated_at}}</p>-->
         </ion-item>
 
         <ion-item *ngFor="let loc of item.tr_loc let i = index3" (click)="onCheckItem(i)">
           <p>Lokalizacja</p>
-          <P>Miasto : {{loc. city}}</P>
-          <P>Województwo: {{loc.voivodeship}}</P>
-          <P>Ostatnia data: {{loc.updated_at}}</P>
-          <P>Data utworzenie {{loc.created_at}}</P>
+          <P>Miasto : {{loc.  place}}</P>
+
+          <P>Ostatnia data: {{loc.beginTime}}</P>
+          <P>Data utworzenie {{loc.date}}</P>
         </ion-item>
 
         <ion-item *ngFor="let loc of item.tr_pl let i = index4" (click)="onCheckItem(i)">
-          <p>Lokalizacja:{{loc.place}}</p>
+          <p>Lokalizacja:{{loc.city}}</p>
           <p></p>
         </ion-item>
 
@@ -98,15 +97,15 @@
           <p>Oferta</p>
           <p>Usługa: {{off.name}}</p>
           <p>Cena: {{off.price}}</p>
-          <p>Maksymalna liczba klientów:{{off.max_no_of_clients}}</p>
-          <p>Data utworzenie:{{off.created_at}}</p>
-          <p>Data modyfikacji : {{off.updated_at}}</p>
+          <p>Maksymalna liczba klientów:{{off.maxNofClients}}</p>
+          <!--<p>Data utworzenie:{{off.created_at}}</p>-->
+          <!--<p>Data modyfikacji : {{off.updated_at}}</p>-->
           <p></p>
         </ion-item>
         <ion-item *ngFor="let opp of item.tr_op let i = index6" (click)="onCheckItem(i)">
-          <p>Opinia: {{opp.opinion}}</p>
+          <p>Opinia: {{opp.description}}</p>
           <p></p>
-          <p>Opiniodawca: {{opp.user}}</p>
+          <p>Opiniodawca: {{opp.name}}</p>
 
         </ion-item>
       </ion-item>

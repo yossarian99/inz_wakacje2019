@@ -7,6 +7,8 @@ import {UserProfile} from "../../models/UserProfile-model";
 import {SearchServiceProvider} from "../../providers/search-service/search-service";
 // import {HomePage} from "../home/home";
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
+import {ProfileOut} from "../../model/profileOut";
+import {ProfileService} from "../../api/profile.service";
 
 /**
  * Generated class for the ShowSearchPage page.
@@ -28,9 +30,9 @@ dysc:''
 };
   showsearch:boolean;
 showresult:boolean=true;
-profiles:UserProfile[]=[];
+profiles:ProfileOut[]=[];
 
-  constructor(public nav: NavController,private auth: AuthServiceProvider, public navParams: NavParams, private configServce: ConfigServce, public restProvider: RestProvider,public sea:SearchServiceProvider) {
+  constructor(public rest :ProfileService,public nav: NavController,private auth: AuthServiceProvider, public navParams: NavParams, private configServce: ConfigServce, public restProvider: RestProvider,public sea:SearchServiceProvider) {
 
 
   }
@@ -38,7 +40,7 @@ profiles:UserProfile[]=[];
   private GET_PROFILE = this.BASE_URL + 'profiles/';
   private URl = this.GET_PROFILE+this.searchParams.dysc+'/'+this.searchParams.loc
   public getSearch() {
-    this.configServce. getSearchPeofile(decodeURI(this.URl)).subscribe(result => {
+    this.rest.getProfile(1).subscribe(result => {
 
      if(result!=undefined){
        Object.assign(this.profiles, result);
@@ -54,6 +56,9 @@ profiles:UserProfile[]=[];
 
 
     });
+
+
+
 
 
 

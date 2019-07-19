@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class CityService {
 
-    protected basePath = 'https://localhost:9090/api';
+    protected basePath = 'http://localhost:9090/api';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 

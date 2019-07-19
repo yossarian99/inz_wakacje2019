@@ -4,6 +4,8 @@ import {SearchServiceProvider} from "../../providers/search-service/search-servi
 import {ConfigServce} from "../../providers/config-service/config-service";
 import {UserProfile} from "../../models/UserProfile-model";
 import {ProfileListService} from "../../services/Pfofile-list";
+import {ProfileService} from "../../api/profile.service";
+import {ProfileOut} from "../../model/profileOut";
 // import {ViewprofilPage} from "../viewprofil/viewprofil";
 //
 /**
@@ -20,7 +22,7 @@ import {ProfileListService} from "../../services/Pfofile-list";
 })
 export class SearchNewPage {
 
-  constructor(public nav: NavController, public navParams: NavParams, private sea: SearchServiceProvider, private configServce: ConfigServce,private provilconfig: SearchServiceProvider, private  service :ProfileListService  ) {
+  constructor(public rest :ProfileService,public nav: NavController, public navParams: NavParams, private sea: SearchServiceProvider, private configServce: ConfigServce,private provilconfig: SearchServiceProvider, private  service :ProfileListService  ) {
     this.change_rating(4);
     this.showForm();
   }
@@ -43,16 +45,16 @@ ProfilOpinie:number;
   };
   showsearch: boolean;
   showresult: boolean = true;
-  profiles: UserProfile[] = [];
-  profil:UserProfile;
+  profiles: ProfileOut[] = [];
+  profil:ProfileOut;
   BASE_URL:string;
   GET_PROFILE:string;
   URl:string;
   sciezka:string;
 
 
-  public getSearch(sciezka:string) {
-    this.configServce.getSearchPeofile(sciezka).subscribe(result => {
+  public getSearch() {
+    this.rest.getProfile(1).subscribe(result => {
         console.log(this.sciezka);
       if (result != undefined) {
         Object.assign(this.profiles, result);
@@ -84,7 +86,7 @@ ProfilOpinie:number;
 
            this.URl = this.BASE_URL+this.searchParams.dysc+'/'+this.searchParams.loc;
            this.sciezka=encodeURI(this.URl);
-            this.getSearch(this.sciezka);
+            this.getSearch();
             this.showsearch = true;
 
 
@@ -92,11 +94,11 @@ ProfilOpinie:number;
 
         }
       }
-  profilsite(id:number){
+  profilsite(profil:ProfileOut){
     // this.service.addItem_object(id);
-this.provilconfig.addProfilById(id);
+this.provilconfig.addprofilParams(profil);
 console.log("w srodku servisu");
-console.log(id);
+
     this.nav.push('ViewprofilPage');
 
 }

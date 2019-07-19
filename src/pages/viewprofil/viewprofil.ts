@@ -70,11 +70,7 @@ rating_option:number;
 
   }
   getUsers() {
-    this.rest.getUsers()
-      .then(data => {
-        this.item = data;
-        console.log(this.item);
-      });
+  this.item=this.provilconfig.getprofilParms();
   }
   initializeopinionforms() {
 
