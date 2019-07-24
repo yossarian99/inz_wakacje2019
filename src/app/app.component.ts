@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {SearchNewPage} from "../pages/search-new/search-new";
 import {Search2Page} from "../pages/search2/search2";
+import {ProfilViewMenuPage} from "../pages/profil-view-menu/profil-view-menu";
 // import {StartPage} from "../pages/start/start";
 // import {SearchNewPage} from "../pages/search-new/search-new";
 // import {Search2Page} from "../pages/search2/search2";
@@ -21,7 +22,7 @@ import {Search2Page} from "../pages/search2/search2";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'StartPage';
+  rootPage:any = 'ProfilViewMenuPage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
